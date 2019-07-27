@@ -1,0 +1,42 @@
+kind: pipeline
+name: arm
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+- name: submodules
+  image: docker:git
+  commands:
+  # for updating submodules to latest upstream, add --remote
+  - git submodule update --init --recursive
+
+- name: build
+  image: alpine
+  failure: ignore
+  commands:
+  - echo "Install build dependencies with apk update && apk add --no-cache ..."
+  - echo "Build library and run tests"
+
+---
+kind: pipeline
+name: arm64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+- name: submodules
+  image: docker:git
+  commands:
+  # for updating submodules to latest upstream, add --remote
+  - git submodule update --init --recursive
+
+- name: build
+  image: alpine
+  failure: ignore
+  commands:
+  - echo "Install build dependencies with apk update && apk add --no-cache ..."
+  - echo "Build library and run tests"
