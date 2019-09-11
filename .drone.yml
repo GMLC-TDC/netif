@@ -16,8 +16,12 @@ steps:
   image: alpine
   failure: ignore
   commands:
-  - echo "Install build dependencies with apk update && apk add --no-cache ..."
-  - echo "Build library and run tests"
+  - apk update
+  - apk add --no-cache build-base cmake ninja
+  - mkdir -p build && cd build
+  - cmake -DENABLE_NETIF_TESTS=ON ..
+  - make
+  - ctest --verbose
 
 ---
 kind: pipeline
@@ -38,5 +42,9 @@ steps:
   image: alpine
   failure: ignore
   commands:
-  - echo "Install build dependencies with apk update && apk add --no-cache ..."
-  - echo "Build library and run tests"
+  - apk update
+  - apk add --no-cache build-base cmake ninja
+  - mkdir -p build && cd build
+  - cmake -DENABLE_NETIF_TESTS=ON ..
+  - make
+  - ctest --verbose
