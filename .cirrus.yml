@@ -2,7 +2,7 @@ freebsd_instance:
   image: freebsd-12-0-release-amd64
 
 task:
-  install_script: pkg_info && pkg install -y cmake
+  install_script: ls /usr/ports && ls /usr/ports/devel && pkg install -y devel/cmake
   build_script: |
     mkdir -p build && cd build
     cmake -DENABLE_NETIF_TESTS=ON ..
