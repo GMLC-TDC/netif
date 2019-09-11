@@ -1,5 +1,5 @@
-# Cross-Platform Continuous Integration
-Template repository with basic configuration files for CI services to run builds on a variety of operating systems, CPU architectures, and libc implementations (Alpine Linux uses musl).
+# NetIF
+Network interface library code used by HELICS for getting network addresses on a system without relying on name lookups.
 
 OS              | CPU Arch      | Service       | Badge
 --------------- | ------------- | ------------- | ----------
