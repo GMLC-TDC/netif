@@ -1,5 +1,5 @@
 # NetIF
-Network interface library code used by HELICS for getting network addresses on a system without relying on name lookups.
+Network interface library code used by HELICS for getting network addresses on a system without relying on name lookups.Header-only, requires C++14.
 
 OS              | CPU Arch      | Service       | Badge
 --------------- | ------------- | ------------- | ----------
