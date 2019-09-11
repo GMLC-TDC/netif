@@ -20,7 +20,7 @@ steps:
   - apk add --no-cache build-base cmake ninja
   - mkdir -p build && cd build
   - cmake -DENABLE_NETIF_TESTS=ON ..
-  - ctest --build .
+  - make
   - ctest --verbose
 
 ---
@@ -46,5 +46,5 @@ steps:
   - apk add --no-cache build-base cmake ninja
   - mkdir -p build && cd build
   - cmake -DENABLE_NETIF_TESTS=ON ..
-  - ctest --build .
+  - make
   - ctest --verbose
