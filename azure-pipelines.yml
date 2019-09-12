@@ -17,26 +17,16 @@ jobs:
       cmake -DENABLE_NETIF_TESTS=ON ..
       cmake --build .
       ctest --verbose
+    displayName: 'Build'
+
+  # Linux and macOS only
+  - bash: |
       ifconfig
-    displayName: 'Run on Linux/macOS/Windows'
-
-  # Linux only
-  - bash: |
-      echo "This is only run on Linux"
-      echo "Dependencies could be installed with apt-get"
-    condition: eq( variables['Agent.OS'], 'Linux' )
-    displayName: 'Run on Linux'
-
-  # macOS only
-  - bash: |
-      echo "This is only run on macOS"
-      echo "Dependencies could be installed with homebrew"
-    condition: eq( variables['Agent.OS'], 'Darwin' )
-    displayName: 'Run on macOS'
+    condition: ne( variables['Agent.OS'], 'Windows_NT' )
+    displayName: 'ifconfig'
 
   # Windows only
   - bash: |
-      echo "This is only run on Windows"
-      echo "Dependencies could be installed with choco"
-    displayName: 'Run on Windows'
+      ipconfig
+    displayName: 'ipconfig'
     condition: eq( variables['Agent.OS'], 'Windows_NT' )
