@@ -13,11 +13,11 @@ jobs:
 
   steps:
   - script: |
+      mkdir -p build && cd build
       cmake -DENABLE_NETIF_TESTS=ON ..
       cmake --build .
       ctest --verbose
       ifconfig
-    workingDirectory: build
     displayName: 'Run on Linux/macOS/Windows'
 
   # Linux only
