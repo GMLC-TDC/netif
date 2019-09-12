@@ -13,7 +13,11 @@ jobs:
 
   steps:
   - script: |
-      echo "All 3 Azure platforms will run this"
+      cmake -DENABLE_NETIF_TESTS=ON ..
+      cmake --build .
+      ctest --verbose
+      ifconfig
+    workingDirectory: build
     displayName: 'Run on Linux/macOS/Windows'
 
   # Linux only
