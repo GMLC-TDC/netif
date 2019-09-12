@@ -24,8 +24,9 @@ All rights reserved. SPDX-License-Identifier: BSD-3-Clause
 #pragma comment(lib, "Ws2_32.lib")
 #endif
 #else
-#ifdef __FreeBSD__ || __NetBSD__ || __OpenBSD__ || __bsdi__ || __DragonFly__
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__) || defined(__DragonFly__)
 #include <sys/socket.h>
+#include <netinet/in.h>
 #endif
 #include <arpa/inet.h>
 #include <ifaddrs.h>
