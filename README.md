@@ -8,3 +8,12 @@ Linux (Alpine)  | ARM/AArch64   | [![Build Status](https://cloud.drone.io/api/ba
 Linux (Ubuntu)  | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
 macOS 10.14     | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
 Windows 10      | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
+
+
+## Release
+NetIF is distributed under the terms of the BSD-3 clause license. All new
+contributions must be made under this license. [LICENSE](LICENSE)
+
+SPDX-License-Identifier: BSD-3-Clause
+
+Portions of the code written by LLNL with release number LLNL-CODE-739319
