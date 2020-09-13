@@ -1,9 +1,9 @@
 # NetIF
-Get a list of network addresses associated with network interfaces on a system without relying on name lookups. Header-only, requires C++14.
+Get addresses associated with network interfaces on a system without using name lookups. Header-only, requires C++14.
 
 ## Usage
 
-Add the header file to the include path. The main functions for getting interface addresses all return a vector of strings (`std::vector<std::string>`) with the typical human-readable representation of IP addresses (e.g. `127.0.0.1` for IPv4 and `2001:0db8:85a3:0000:0000:8a2e:0370:7334` for IPv6).
+Add the header file to the include path for your project. The main functions for getting interface addresses all return a vector of strings (`std::vector<std::string>`) with the typical human-readable representation of IP addresses (e.g. `127.0.0.1` for IPv4 and `2001:0db8:85a3:0000:0000:8a2e:0370:7334` for IPv6).
 
 ```cpp
 #include "gmlc/netif/NetIF.hpp"
