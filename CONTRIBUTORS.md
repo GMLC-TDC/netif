@@ -5,11 +5,11 @@ If you would like to contribute to the NetIF, HELICS or any of the GMLC-TDC rela
 ## Individual contributors
 
 ### Lawrence Livermore National Lab
- - Philip Top
- - Ryan Mast`
+ - [Philip Top](https://github.com/phlptp)
+ - [Ryan Mast](https://github.com/nightlark)
 
 ### National Renewable Energy Lab
- - Dheepak Krishnamurthy
+ - [Dheepak Krishnamurthy](https://github.com/kdheepak)
 
 ## Used Libraries or Code
 
