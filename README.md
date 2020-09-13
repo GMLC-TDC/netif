@@ -1,5 +1,19 @@
 # NetIF
-Network interface library code used by HELICS for getting network addresses on a system without relying on name lookups. Header-only, requires C++14.
+Get a list of network addresses associated with network interfaces on a system without relying on name lookups. Header-only, requires C++14.
+
+## Usage
+
+Add the header file to the include path. The main functions for getting interface addresses all return a vector of strings (`std::vector<std::string>`) with the typical human-readable representation of IP addresses (e.g. `127.0.0.1` for IPv4 and `2001:0db8:85a3:0000:0000:8a2e:0370:7334` for IPv6).
+
+```cpp
+#include "gmlc/netif/NetIF.hpp"
+
+auto addrs_ipv4 = gmlc::netif::getInterfaceAddressesV4(); // Get all IPv4 addresses
+auto addrs_ipv6 = gmlc::netif::getInterfaceAddressesV6(); // Get all IPv6 addresses
+auto addrs_all = gmlc::netif::getInterfaceAddressesAll(); // Get all addresses (IPv4 and IPv6)
+```
+
+## CI Test Status
 
 OS              | CPU Arch      | Status
 --------------- | ------------- | -------------
@@ -9,10 +23,14 @@ Linux (Ubuntu)  | x86_64        | [![Build Status](https://dev.azure.com/HELICS-
 macOS 10.14     | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
 Windows 10      | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. See [Contributing](CONTRIBUTING) for more details and [Contributors](CONTRIBUTORS) for a list of the current and past contributors to this project.
+
+Please make sure to update tests as appropriate.
 
 ## Release
 NetIF is distributed under the terms of the BSD-3 clause license. All new
-contributions must be made under this license. [LICENSE](LICENSE)
+contributions must be made under this license. See [LICENSE](LICENSE) for more detail.
 
 SPDX-License-Identifier: BSD-3-Clause
 
