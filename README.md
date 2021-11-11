@@ -1,4 +1,5 @@
 # NetIF
+
 Get addresses associated with network interfaces on a system without using name lookups. Header-only, requires C++14.
 
 ## Usage
@@ -15,20 +16,22 @@ auto addrs_all = gmlc::netif::getInterfaceAddressesAll(); // Get all addresses (
 
 ## CI Test Status
 
-OS              | CPU Arch      | Status
---------------- | ------------- | -------------
-FreeBSD         | x86_64        | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg)](https://cirrus-ci.com/github/GMLC-TDC/netif)
-Linux (Alpine)  | ARM/AArch64   | [![Build Status](https://cloud.drone.io/api/badges/GMLC-TDC/netif/status.svg)](https://cloud.drone.io/GMLC-TDC/netif)
-Linux (Ubuntu)  | x86_64        | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml)
-macOS           | x86_64        | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml)
-Windows 10      | x86_64        | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml)
+| OS             | CPU Arch    | Status                                                                                                                                          |
+| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| FreeBSD        | x86_64      | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg)](https://cirrus-ci.com/github/GMLC-TDC/netif)                              |
+| Linux (Alpine) | ARM/AArch64 | [![Build Status](https://cloud.drone.io/api/badges/GMLC-TDC/netif/status.svg)](https://cloud.drone.io/GMLC-TDC/netif)                           |
+| Linux (Ubuntu) | x86_64      | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
+| macOS          | x86_64      | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
+| Windows 10     | x86_64      | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. See [Contributing](CONTRIBUTING) for more details and [Contributors](CONTRIBUTORS) for a list of the current and past contributors to this project.
 
 Please make sure to update tests as appropriate.
 
 ## Release
+
 NetIF is distributed under the terms of the BSD-3 clause license. All new
 contributions must be made under this license. See [LICENSE](LICENSE) for more detail.
 
