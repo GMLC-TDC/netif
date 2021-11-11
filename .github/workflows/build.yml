@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    name: Native ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and test
+        run: |
+          mkdir -p build && cd build
+          cmake -DENABLE_NETIF_TESTS=ON ..
+          cmake --build .
+          ctest --verbose
+
+      # List network interfaces to compare against test output
+      - run: ifconfig
+        if: runner.os != 'Windows'
+      - run: ipconfig
+        if: runner.os == 'Windows'

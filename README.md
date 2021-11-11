@@ -19,9 +19,9 @@ OS              | CPU Arch      | Status
 --------------- | ------------- | -------------
 FreeBSD         | x86_64        | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg)](https://cirrus-ci.com/github/GMLC-TDC/netif)
 Linux (Alpine)  | ARM/AArch64   | [![Build Status](https://cloud.drone.io/api/badges/GMLC-TDC/netif/status.svg)](https://cloud.drone.io/GMLC-TDC/netif)
-Linux (Ubuntu)  | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
-macOS 10.14     | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
-Windows 10      | x86_64        | [![Build Status](https://dev.azure.com/HELICS-test/netif/_apis/build/status/GMLC-TDC.netif?branchName=master)](https://dev.azure.com/HELICS-test/netif/_build/latest?definitionId=1&branchName=master)
+Linux (Ubuntu)  | x86_64        | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml)
+macOS           | x86_64        | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml)
+Windows 10      | x86_64        | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. See [Contributing](CONTRIBUTING) for more details and [Contributors](CONTRIBUTORS) for a list of the current and past contributors to this project.
