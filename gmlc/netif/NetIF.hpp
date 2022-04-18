@@ -266,19 +266,28 @@ namespace netif {
      * returns a list of all IPv4 addresses associated with network interfaces on the system.
      * @return a list of IPv4 addresses as text
      */
-    std::vector<std::string> getInterfaceAddressesV4() { return getInterfaceAddresses(AF_INET); }
+    std::vector<std::string> getInterfaceAddressesV4()
+    {
+        return getInterfaceAddresses(AF_INET);
+    }
 
     /**
      * returns a list of all IPv6 addresses associated with network interfaces on the system.
      * @return a list of IPv6 addresses as text
      */
-    std::vector<std::string> getInterfaceAddressesV6() { return getInterfaceAddresses(AF_INET6); }
+    std::vector<std::string> getInterfaceAddressesV6()
+    {
+        return getInterfaceAddresses(AF_INET6);
+    }
 
     /**
      * returns a list of all IPv4 and IPv6 addresses associated with network interfaces on the
      * system.
      * @return a list of IPv4 and IPv6 addresses as text
      */
-    std::vector<std::string> getInterfaceAddressesAll() { return getInterfaceAddresses(AF_UNSPEC); }
+    std::vector<std::string> getInterfaceAddressesAll()
+    {
+        return getInterfaceAddresses(AF_UNSPEC);
+    }
 }  // namespace netif
 }  // namespace gmlc
