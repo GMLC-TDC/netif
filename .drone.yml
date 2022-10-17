@@ -1,32 +1,4 @@
 kind: pipeline
-name: arm
-
-platform:
-  os: linux
-  arch: arm
-
-steps:
-  - name: submodules
-    image: alpine:3.12
-    commands:
-      # for updating submodules to latest upstream, add --remote
-      - apk add --no-cache git
-      - git submodule update --init --recursive
-
-  - name: build
-    image: alpine:3.12
-    failure: ignore
-    commands:
-      - apk update
-      - apk add --no-cache build-base cmake ninja
-      - mkdir -p build && cd build
-      - cmake -DENABLE_NETIF_TESTS=ON ..
-      - make
-      - ctest --verbose
-      - ifconfig
-
----
-kind: pipeline
 name: arm64
 
 platform:
