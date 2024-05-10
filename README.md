@@ -16,13 +16,13 @@ auto addrs_all = gmlc::netif::getInterfaceAddressesAll(); // Get all addresses (
 
 ## CI Test Status
 
-| OS             | CPU Arch    | Status                                                                                                                                          |
-| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| FreeBSD        | x86_64      | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg?task=freebsd)](https://cirrus-ci.com/github/GMLC-TDC/netif)                 |
-| Linux (Alpine) | AArch64     | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg?task=arm64)](https://cirrus-ci.com/github/GMLC-TDC/netif)                   |
-| Linux (Ubuntu) | x86_64      | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
-| macOS          | ARM64       | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
-| Windows 10     | x86_64      | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
+| OS             | CPU Arch | Status                                                                                                                                          |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| FreeBSD        | x86_64   | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg?task=freebsd)](https://cirrus-ci.com/github/GMLC-TDC/netif)                 |
+| Linux (Alpine) | AArch64  | [![Build Status](http://api.cirrus-ci.com/github/GMLC-TDC/netif.svg?task=arm64)](https://cirrus-ci.com/github/GMLC-TDC/netif)                   |
+| Linux (Ubuntu) | x86_64   | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
+| macOS          | ARM64    | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
+| Windows 10     | x86_64   | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
 
 ## Contributing
 
