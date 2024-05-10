@@ -1,8 +1,20 @@
-freebsd_instance:
-  image_family: freebsd-14-0
+task:
+  name: freebsd
+  freebsd_instance:
+    image_family: freebsd-14-0
+  install_script: pkg install -y cmake
+  build_script: |
+    mkdir -p build && cd build
+    cmake -DENABLE_NETIF_TESTS=ON ..
+    make
+    ctest --verbose
+    ifconfig
 
 task:
-  install_script: pkg install -y cmake
+  name: arm64
+  arm_container:
+    image: alpine:latest
+  install_script: apk add --no-cache build-base cmake ninja
   build_script: |
     mkdir -p build && cd build
     cmake -DENABLE_NETIF_TESTS=ON ..
