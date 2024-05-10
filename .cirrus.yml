@@ -1,4 +1,4 @@
-task:
+freebsd_task:
   name: freebsd
   freebsd_instance:
     image_family: freebsd-14-0
@@ -10,7 +10,7 @@ task:
     ctest --verbose
     ifconfig
 
-task:
+arm64_task:
   name: arm64
   arm_container:
     image: alpine:latest
