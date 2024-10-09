@@ -223,7 +223,7 @@ namespace netif {
      * AF_UNSPEC (both)
      * @return a list of addresses as text
      */
-    std::vector<std::string> getInterfaceAddresses(int family)
+    inline std::vector<std::string> getInterfaceAddresses(int family)
     {
         std::vector<std::string> result_list;
 
@@ -266,7 +266,7 @@ namespace netif {
      * returns a list of all IPv4 addresses associated with network interfaces on the system.
      * @return a list of IPv4 addresses as text
      */
-    std::vector<std::string> getInterfaceAddressesV4()
+    inline std::vector<std::string> getInterfaceAddressesV4()
     {
         return getInterfaceAddresses(AF_INET);
     }
@@ -275,7 +275,7 @@ namespace netif {
      * returns a list of all IPv6 addresses associated with network interfaces on the system.
      * @return a list of IPv6 addresses as text
      */
-    std::vector<std::string> getInterfaceAddressesV6()
+    inline std::vector<std::string> getInterfaceAddressesV6()
     {
         return getInterfaceAddresses(AF_INET6);
     }
@@ -285,7 +285,7 @@ namespace netif {
      * system.
      * @return a list of IPv4 and IPv6 addresses as text
      */
-    std::vector<std::string> getInterfaceAddressesAll()
+    inline std::vector<std::string> getInterfaceAddressesAll()
     {
         return getInterfaceAddresses(AF_UNSPEC);
     }
