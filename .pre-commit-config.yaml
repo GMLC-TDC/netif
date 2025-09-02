@@ -1,7 +1,7 @@
 exclude: ^(tests/catch2/)
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: mixed-line-ending
@@ -24,13 +24,13 @@ repos:
       - id: codespell
         args: ["--skip=.github/CODE_OF_CONDUCT.md"]
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v20.1.8
+    rev: v21.1.0
     hooks:
       - id: clang-format
         types:
           - c++
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.11.0.1
     hooks:
       - id: shellcheck
         args: [-x]
