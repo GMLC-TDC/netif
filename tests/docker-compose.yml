@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   netif-test:
@@ -13,7 +13,7 @@ services:
       - NET_ADMIN
       - NET_RAW
     command: test
-    
+
   netif-test-shell:
     build:
       context: ..

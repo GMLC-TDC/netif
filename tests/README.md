@@ -5,6 +5,7 @@ This directory contains tools and utilities for testing NetIF with custom networ
 ## Overview
 
 The test environment provides:
+
 1. **Interface validation** - Validate that detected IP addresses match expected interfaces
 2. **Virtual interface creation** - Scripts to create dummy network interfaces on Linux for testing
 3. **Docker-based testing** - Containerized test environment with custom network configurations
@@ -15,16 +16,19 @@ The test environment provides:
 ### Running Tests Locally (Linux)
 
 1. **Create virtual test interfaces:**
+
    ```bash
    sudo ./setup_virtual_interfaces.sh setup
    ```
 
 2. **Export current interfaces to a config file:**
+
    ```bash
    ./setup_virtual_interfaces.sh export expected_interfaces.txt
    ```
 
 3. **Run tests with validation:**
+
    ```bash
    cd ../build
    export NETIF_EXPECTED_INTERFACES=../tests/expected_interfaces.txt
@@ -41,11 +45,13 @@ The test environment provides:
 Docker provides an isolated environment where we can create virtual network interfaces without affecting the host system.
 
 1. **Build and run tests:**
+
    ```bash
    docker-compose up netif-test
    ```
 
 2. **Interactive shell for debugging:**
+
    ```bash
    docker-compose run netif-test-shell
    ```
@@ -103,6 +109,7 @@ The `setup_virtual_interfaces.sh` script creates the following test interfaces:
   - IPv6: fe80::abcd:1/64
 
 These interfaces provide comprehensive coverage for testing:
+
 - Multiple addresses per interface
 - Both IPv4 and IPv6
 - Global unicast IPv6 addresses (2001:db8::/32 - documentation prefix)
@@ -114,19 +121,20 @@ These interfaces provide comprehensive coverage for testing:
 To integrate this test environment into CI workflows:
 
 1. **GitHub Actions** (Linux):
+
    ```yaml
    - name: Setup virtual interfaces
      run: |
        cd tests
        sudo ./setup_virtual_interfaces.sh setup
        ./setup_virtual_interfaces.sh export expected_interfaces.txt
-   
+
    - name: Run tests with validation
      run: |
        cd build
        export NETIF_EXPECTED_INTERFACES=../tests/expected_interfaces.txt
        ctest --verbose
-   
+
    - name: Cleanup
      if: always()
      run: sudo ./tests/setup_virtual_interfaces.sh teardown
@@ -143,15 +151,18 @@ To integrate this test environment into CI workflows:
 ## Platform Support
 
 ### Linux
+
 - ✅ Fully supported with `ip` command for creating virtual interfaces
 - ✅ Docker support for isolated testing
 
 ### Windows
+
 - ⚠️ Virtual interface creation needs alternative approach
 - 💡 Consider using Windows Loopback Adapter or Hyper-V virtual switches
 - 💡 PowerShell scripts could automate interface creation
 
 ### macOS
+
 - ⚠️ Virtual interface creation needs alternative approach
 - 💡 Consider using `ifconfig` with loopback aliases
 - 💡 Docker Desktop for Mac can provide Linux environment
@@ -167,14 +178,17 @@ To integrate this test environment into CI workflows:
 ## Troubleshooting
 
 ### "Operation not permitted" when creating interfaces
+
 - Make sure you run the script with `sudo`
 - In Docker, ensure the container runs with `--privileged` or has `CAP_NET_ADMIN` capability
 
 ### IPv6 addresses not appearing
+
 - Check if IPv6 is enabled on your system: `sysctl net.ipv6.conf.all.disable_ipv6`
 - Enable IPv6 if disabled: `sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0`
 
 ### Tests fail with missing addresses
+
 - Verify the expected_interfaces.txt file matches your system
 - Re-export the configuration: `./setup_virtual_interfaces.sh export`
 - Check that virtual interfaces were created successfully: `ip addr show`
@@ -182,6 +196,7 @@ To integrate this test environment into CI workflows:
 ## Contributing
 
 When adding new test cases:
+
 1. Consider whether virtual interfaces are needed
 2. Update the `setup_virtual_interfaces.sh` if new interface types are required
 3. Update this documentation

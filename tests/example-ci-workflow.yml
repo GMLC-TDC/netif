@@ -41,36 +41,36 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      
+
       - name: Build project
         run: |
           mkdir -p build && cd build
           cmake -DENABLE_NETIF_TESTS=ON ..
           cmake --build .
-      
+
       - name: Setup virtual network interfaces
         run: |
           cd tests
           sudo ./setup_virtual_interfaces.sh setup
-      
+
       - name: Export expected interfaces
         run: |
           cd tests
           ./setup_virtual_interfaces.sh export expected_interfaces.txt
           cat expected_interfaces.txt
-      
+
       - name: Run tests with validation
         run: |
           cd build
           export NETIF_EXPECTED_INTERFACES=../tests/expected_interfaces.txt
           ctest --verbose
-      
+
       - name: Cleanup virtual interfaces
         if: always()
         run: |
           cd tests
           sudo ./setup_virtual_interfaces.sh teardown
-      
+
       - name: Display all interfaces
         if: always()
         run: ifconfig
@@ -82,7 +82,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      
+
       - name: Run tests in Docker
         run: |
           cd tests

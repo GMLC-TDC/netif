@@ -30,3 +30,6 @@ Testing/
 
 # macOS
 .DS_Store
+
+# Node modules (from pre-commit prettier)
+node_modules/
