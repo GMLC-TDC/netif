@@ -1,0 +1,31 @@
+Start testing: Nov 19 02:23 UTC
+----------------------------------------------------------
+1/1 Testing: GetAddressTests
+1/1 Test: GetAddressTests
+Command: "/home/runner/work/netif/netif/build/tests/GetAddressTests"
+Directory: /home/runner/work/netif/netif/build/tests
+"GetAddressTests" start time: Nov 19 02:23 UTC
+Output:
+----------------------------------------------------------
+IPv4 Addresses:
+127.0.0.1
+10.1.0.192
+172.17.0.1
+
+IPv6 Addresses:
+::1
+fe80::6245:bdff:fe0a:2af6
+
+===============================================================================
+test cases: 2 | 2 passed
+assertions: - none -
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"GetAddressTests" end time: Nov 19 02:23 UTC
+"GetAddressTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 19 02:23 UTC
