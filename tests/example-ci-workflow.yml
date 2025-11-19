@@ -1,0 +1,89 @@
+# Example CI workflow integration for testing with virtual network interfaces
+# This file demonstrates how to update the existing build.yml workflow
+
+name: CI with Virtual Interfaces
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Original build job (kept for compatibility)
+  build:
+    name: Native ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build and test
+        run: |
+          mkdir -p build && cd build
+          cmake -DENABLE_NETIF_TESTS=ON ..
+          cmake --build .
+          ctest --verbose
+
+      # List network interfaces to compare against test output
+      - run: ifconfig
+        if: runner.os != 'Windows'
+      - run: ipconfig
+        if: runner.os == 'Windows'
+
+  # New job with virtual interface testing (Linux only for now)
+  test-with-virtual-interfaces:
+    name: Linux with Virtual Interfaces
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      
+      - name: Build project
+        run: |
+          mkdir -p build && cd build
+          cmake -DENABLE_NETIF_TESTS=ON ..
+          cmake --build .
+      
+      - name: Setup virtual network interfaces
+        run: |
+          cd tests
+          sudo ./setup_virtual_interfaces.sh setup
+      
+      - name: Export expected interfaces
+        run: |
+          cd tests
+          ./setup_virtual_interfaces.sh export expected_interfaces.txt
+          cat expected_interfaces.txt
+      
+      - name: Run tests with validation
+        run: |
+          cd build
+          export NETIF_EXPECTED_INTERFACES=../tests/expected_interfaces.txt
+          ctest --verbose
+      
+      - name: Cleanup virtual interfaces
+        if: always()
+        run: |
+          cd tests
+          sudo ./setup_virtual_interfaces.sh teardown
+      
+      - name: Display all interfaces
+        if: always()
+        run: ifconfig
+
+  # Docker-based testing
+  test-with-docker:
+    name: Docker Container Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      
+      - name: Run tests in Docker
+        run: |
+          cd tests
+          docker-compose up --exit-code-from netif-test netif-test

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  netif-test:
+    build:
+      context: ..
+      dockerfile: tests/Dockerfile
+    # Enable privileged mode to allow network interface manipulation
+    privileged: true
+    # Use host network mode for comprehensive testing
+    # network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    command: test
+    
+  netif-test-shell:
+    build:
+      context: ..
+      dockerfile: tests/Dockerfile
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    command: shell
+    stdin_open: true
+    tty: true
