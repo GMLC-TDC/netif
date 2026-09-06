@@ -25,6 +25,41 @@ auto addrs_all = gmlc::netif::getInterfaceAddressesAll(); // Get all addresses (
 | macOS          | ARM64    | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
 | Windows 10     | x86_64   | [![CI](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml/badge.svg)](https://github.com/GMLC-TDC/netif/actions/workflows/build.yml) |
 
+## Testing
+
+NetIF includes a comprehensive test environment that supports testing with virtual network interfaces. This allows testing of corner cases, including IPv6 addresses and multiple addresses per interface.
+
+For more information about the test environment, see [tests/README.md](tests/README.md).
+
+### Quick Test
+
+```bash
+mkdir -p build && cd build
+cmake -DENABLE_NETIF_TESTS=ON ..
+cmake --build .
+ctest --verbose
+```
+
+### Testing with Virtual Interfaces (Linux)
+
+```bash
+# Setup virtual test interfaces
+cd tests
+sudo ./setup_virtual_interfaces.sh setup
+
+# Export current configuration
+./setup_virtual_interfaces.sh export expected_interfaces.txt
+
+# Run tests with validation
+cd ../build
+export NETIF_EXPECTED_INTERFACES=../tests/expected_interfaces.txt
+ctest --verbose
+
+# Cleanup
+cd ../tests
+sudo ./setup_virtual_interfaces.sh teardown
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. See [Contributing](CONTRIBUTING) for more details and [Contributors](CONTRIBUTORS) for a list of the current and past contributors to this project.
