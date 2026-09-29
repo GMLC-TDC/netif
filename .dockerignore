@@ -1,0 +1,10 @@
+build/
+build-*/
+.git/
+node_modules/
+*.o
+*.so
+*.dylib
+*.dll
+CMakeCache.txt
+CMakeFiles/
